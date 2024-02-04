@@ -6,8 +6,8 @@
 
 
 # Check the number of command-line arguments
-if [ "$#" -eq 0 ]; then
-    echo "Usage: $0 <arg1> <arg2> ..."
+if (("$#" < 3)); then
+    echo "Usage: most_active_cookie <cookie_log_file_path.csv> -d <utc_timezone>"
     exit 1
 fi
-python3 most_active_cookie.py $1 $3 # $2 == -d
+python3 most_active_cookie.py $1 $3  # $2 == "-d"
