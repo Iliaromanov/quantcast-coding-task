@@ -38,7 +38,19 @@ class CookieLogParser:
 
     def get_most_active_cookie(self, day: str) -> List[str]:
         """
-        Prints most active cookies for given UTC date, 
-          and returns them in a List
+        Prints most active cookies in self.cookie_counts_by_date 
+          for given UTC date, and returns them in a List
         """
-        return []
+        result = []
+
+        if day not in self.cookie_counts_by_date:
+            print("Specified date has no cookies associated with it.")
+            return result
+        
+        cookies_on_day = self.cookie_counts_by_date[day]
+        most_active_cookie_count = max(cookies_on_day.values())
+        for cookie, count in cookies_on_day.items():
+            if count == most_active_cookie_count:
+                result.append(cookie)
+        
+        return result

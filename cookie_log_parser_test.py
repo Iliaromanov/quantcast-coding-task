@@ -36,3 +36,20 @@ def test_parse_csv_to_dict_sample():
         }
     })
 
+def test_get_most_active_cookie_one():
+    cookie_log_parser.parse_csv_to_dict(
+        os.path.join(DATA_DIR, "cookie_count_greater_than_one.csv"))
+    result = cookie_log_parser.get_most_active_cookie("2018-12-08")
+    assert(result == ["SAZuXPGUrfbcn5UA"])
+
+def test_get_most_active_cookies_multiple():
+    cookie_log_parser.parse_csv_to_dict(
+        os.path.join(DATA_DIR, "sample.csv"))
+    result = cookie_log_parser.get_most_active_cookie("2018-12-08")
+    assert(result == ["SAZuXPGUrfbcn5UA", "4sMM2LxV07bPJzwf", "fbcn5UAVanZf6UtG"])
+
+def test_get_most_active_cookies_invalid_date():
+    cookie_log_parser.parse_csv_to_dict(
+        os.path.join(DATA_DIR, "sample.csv"))
+    result = cookie_log_parser.get_most_active_cookie("2025-12-08")
+    assert(result == [])
