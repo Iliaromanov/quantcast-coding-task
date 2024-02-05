@@ -5,7 +5,7 @@ from cookie_log_parser import CookieLogParser
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: most_active_cookie <cookie_log_file_path.csv> -d <utc_timezone>")
+        print("Usage: most_active_cookie <cookie_log_file_path.csv> -d <YYYY-MM-DD_date>")
         sys.exit(1)
 
     path = sys.argv[1]

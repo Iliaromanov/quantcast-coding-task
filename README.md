@@ -10,7 +10,7 @@ I avoided importing any libraries other than Pytest and sys, for testing and ret
 **Most importantly, I wrote a bash script which calls my CLI python code in order to exactly fit the sample call provided in the task description. Once at the root of this repository, my program can be called as follows:**
 
 ```
-./most_active_cookie <cookie_log_file_path.csv> -d <utc_timezone>
+./most_active_cookie <cookie_log_file_path.csv> -d <YYYY-MM-DD_date>
 ```
 
 (assuming the most_active_cookie bash script has been provided with execute, permissions on your machine)
